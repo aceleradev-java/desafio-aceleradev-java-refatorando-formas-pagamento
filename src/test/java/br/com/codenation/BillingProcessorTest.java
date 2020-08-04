@@ -15,6 +15,11 @@ public class BillingProcessorTest {
         Assert.assertNotNull(PaymentMethod.CASH.getPaymentStrategy());
         Assert.assertEquals(Double.valueOf(90.0), this.billingProcessor.calculate(new Order(100.0, PaymentMethod.CASH)));
     }
+    
+    @Test
+    public void testCashPaymentWithGrossValueWith200(){
+        Assert.assertEquals(Double.valueOf(180.0), this.billingProcessor.calculate(new Order(200.0, PaymentMethod.CASH)));
+    }
 
     @Test
     public void testCreditCardPayment(){
