@@ -19,4 +19,8 @@ public class Order {
     public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
+
+    public Double getTotal() {
+        return this.paymentMethod.getPaymentStrategy().calculate(price);
+    }
 }
